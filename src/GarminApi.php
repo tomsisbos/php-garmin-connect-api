@@ -92,7 +92,7 @@ class GarminApi extends Server
      * @throws GuzzleException
      * @throws InvalidArgumentException
      */
-    public function getTokenCredentials(TemporaryCredentials $temporaryCredentials, string $temporaryIdentifier, string $verifier): TokenCredentials
+    public function getTokenCredentials(TemporaryCredentials $temporaryCredentials, $temporaryIdentifier, $verifier): TokenCredentials
     {
         if ($temporaryIdentifier !== $temporaryCredentials->getIdentifier()) {
             throw new \InvalidArgumentException(
