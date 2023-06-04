@@ -1,5 +1,5 @@
 {
-    "name": "stoufa06/php-garmin-connect-api",
+    "name": "tomsisbos/php-garmin-connect-api",
     "description": "PHP library to connect and use garmin wellness api",
     "type": "library",
     "version": "1.8.1",
