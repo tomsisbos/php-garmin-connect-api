@@ -130,7 +130,7 @@ class GarminApi extends Server
      * @param array $bodyParameters
      * @return string
      */
-    protected function protocolHeader(string $method, string $uri, CredentialsInterface $credentials, array $bodyParameters = array()): string
+    protected function protocolHeader($method, $uri, CredentialsInterface $credentials, array $bodyParameters = []): string
     {
         $parameters = array_merge(
             $this->baseProtocolParameters(),
@@ -158,7 +158,7 @@ class GarminApi extends Server
      *
      * @see OAuth 1.0 RFC 5849 Section 3.1
      */
-    protected function baseProtocolParameters(): array
+    protected function baseProtocolParameters()
     {
         $dateTime = new DateTime('now', new DateTimeZone('UTC'));
 
