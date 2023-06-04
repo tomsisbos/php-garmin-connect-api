@@ -26,6 +26,11 @@ class GarminApi extends Server
     const USER_API_URL = "https://healthapi.garmin.com/wellness-api/rest/";
 
     /**
+     * File api endpoint
+     */
+    const FILE_API_URL = "https://apis.garmin.com/wellness-api/rest/";
+
+    /**
      * Get the URL for retrieving temporary credentials.
      *
      * @return string
