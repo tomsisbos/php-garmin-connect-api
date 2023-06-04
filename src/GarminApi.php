@@ -261,6 +261,36 @@ class GarminApi extends Server
         }
         return $response->getBody()->getContents();
     }
+
+    /**
+     * get activity file
+     *
+     * @param TokenCredentials $tokenCredentials
+     * @param array $params
+     * @return string json response
+     * @throws Exception
+     */
+    public function getActivityFile(TokenCredentials $tokenCredentials, array $params): string
+    {
+        $client = $this->createHttpClient();
+        $query = http_build_query($params);
+        $query = 'activityFile?'.$query;
+        $headers = $this->getHeaders($tokenCredentials, 'GET', self::FILE_API_URL . $query);
+
+        try {
+            $response = $client->get(self::FILE_API_URL . $query, [
+                'headers' => $headers,
+            ]);
+        } catch (BadResponseException $e) {
+            $response = $e->getResponse();
+            $body = $response->getBody();
+            $statusCode = $response->getStatusCode();
+            throw new \Exception(
+                "Received error [$body] with status code [$statusCode] when retrieving activity file."
+            );
+        }
+        return $response->getBody()->getContents();
+    }
     
     /**
      * send request to back fill summary type
